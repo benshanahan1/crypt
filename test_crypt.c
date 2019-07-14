@@ -2,8 +2,15 @@
 #include "test_crypt.h"
 
 
+/** Print some information about the test being run. */
+void test_info(char *function) {
+    printf(":: Running test: %s\n", function);
+}
+
+
 /** Test repeat function. */
 int test_repeat() {
+    test_info("test_repeat");
     int rv = 0;
 
     char *x = repeat("ben", 3, 10);
@@ -33,6 +40,7 @@ int test_repeat() {
 
 /** Test crypt function in both direction (encrypt/decrypt). */
 int test_crypt() {
+    test_info("test_crypt");
     int rv = 0;
     char *msg = "hello, ߐ!";
     int msglen = strlen(msg);
@@ -58,10 +66,41 @@ int test_crypt() {
 }
 
 
+int test_path_exists() {
+    test_info("test_path_exists");
+    int rv = 0;
+
+    // Create a file that we're going to check for.
+    char *real_file = "/tmp/crypt_test_file";
+    char *fake_file = "/a/b/c/fake/file";
+    char *buffer = "Hello, world!";
+    FILE *fd = fopen(real_file, "w");
+    fwrite(buffer, sizeof(char), sizeof(buffer), fd);
+    fclose(fd);
+
+    // Check if file exists.
+    if (file_exists(real_file) != 0) {
+        printf("ERROR: File %s exists.\n", real_file);
+        rv ++;
+    }
+
+    // Check if non-existant file exists.
+    if (file_exists(fake_file) == 0) {
+        printf("ERROR: File %s does not exist.\n", fake_file);
+        rv ++;
+    }
+
+    // Remove file and clean up.
+    remove(real_file);
+    return rv;
+}
+
+
 int main(int argc, char *argv[]) {
     int rv = 0;
     rv += test_repeat();
     rv += test_crypt();
+    rv += test_path_exists();
     if (rv == 0) {
         printf("All tests passed.\n");
     }

@@ -74,3 +74,10 @@ void print_bytes(char *str, int length) {
     printf("\n");
 }
 
+
+/** File path exists and is readable. */
+int file_exists(char *path) {
+    int exists = access(path, F_OK);
+    int readable = access(path, R_OK);
+    return (exists != -1 && readable != -1) ? 0 : -1;
+}
