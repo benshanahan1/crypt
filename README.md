@@ -1,5 +1,7 @@
 # crypt
-Very simple CLI to perform [XOR encryption](https://en.wikipedia.org/wiki/XOR_cipher). Inspired by [Project Euler problem 59](https://projecteuler.net/problem=59).
+Very simple CLI to perform [XOR
+encryption](https://en.wikipedia.org/wiki/XOR_cipher). Inspired by [Project
+Euler problem 59](https://projecteuler.net/problem=59).
 
 ```bash
 Usage: ./bin/crypt MODE KEY IN [OUT]
