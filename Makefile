@@ -1,4 +1,10 @@
-all: build test
+all:
+	@echo "Targets:"
+	@echo "  build      Build program."
+	@echo "  test       Build program and run tests."
+	@echo "  install    Build program and add to PATH."
+	@echo "  uninstall  Remove program from PATH."
+	@echo "  clean      Remove build directory."
 
 build:
 	mkdir -p bin/
