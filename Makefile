@@ -1,5 +1,5 @@
 all:
-	@echo "Targets:"
+	@echo "Make targets:"
 	@echo "  build      Build program."
 	@echo "  test       Build program and run tests."
 	@echo "  install    Build program and add to PATH."
