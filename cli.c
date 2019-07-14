@@ -6,8 +6,9 @@
 
 
 void print_usage() {
-    printf("Usage: ./bin/crypt MODE KEY IN [OUT]\n");
-    printf("\n");
+    printf("Usage: crypt MODE KEY IN [OUT]\n\n");
+    printf("Crypt uses a very simple XOR encryption. As a result, the longer "
+           "the encryption key, the more secure the encryption.\n\n");
     printf("    MODE  (-e/-d) encrypt or decrypt\n");
     printf("    KEY   encryption key\n");
     printf("    IN    input file\n");
@@ -34,7 +35,7 @@ int main(int nargc, char *argv[]) {
         out = argv[4];
     }
     if (mode == ENCRYPT && nargc != 5) {
-        printf("Must include an OUTput filepath when encrypting.\n\n");
+        printf("Must include an output filepath when encrypting.\n\n");
         print_usage();
         exit(0);
     }
@@ -42,11 +43,13 @@ int main(int nargc, char *argv[]) {
     // Load message from input file.
     char msg[BUFLEN] = {0};
     FILE *f_in;
+    if (file_exists(in) != 0) {
+        printf("Input file does not exist or cannot be read.\n");
+        exit(1);
+    }
     if (mode == ENCRYPT) {
-        printf("Read plain text.\n");
         f_in = fopen(in, "r");
     } else {
-        printf("Read bytes.\n");
         f_in = fopen(in, "rb");
     }
     size_t msglen = fread(msg, 1, BUFLEN, f_in);
@@ -65,10 +68,8 @@ int main(int nargc, char *argv[]) {
         // Save bytes to output file.
         FILE *f_out;
         if (mode == ENCRYPT) {
-            printf("Wrote bytes.\n");
             f_out = fopen(out, "wb");
         } else {
-            printf("Wrote plain text.\n");
             f_out = fopen(out, "w");
         }
         fwrite(crypted, 1, msglen, f_out);
