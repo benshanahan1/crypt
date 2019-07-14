@@ -11,5 +11,11 @@ test:
 	@echo "=== Running tests ==="
 	@./bin/test_crypt
 
+install: build
+	sudo cp ./bin/crypt /usr/local/bin
+
+uninstall:
+	sudo rm -f /usr/local/bin/crypt
+
 clean:
 	rm -rf bin/
