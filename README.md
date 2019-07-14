@@ -7,9 +7,9 @@ Euler problem 59](https://projecteuler.net/problem=59).
 Usage: ./bin/crypt MODE KEY IN [OUT]
 
     MODE  (-e/-d) encrypt or decrypt
-    KEY   encryption / decryption key
-    IN    input file containing message
-    OUT   if encrypting, must specify
+    KEY   encryption key
+    IN    input file
+    OUT   output file; required if `-f` flag set
 ```
 
 Example usage:
