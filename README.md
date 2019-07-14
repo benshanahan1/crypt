@@ -4,7 +4,7 @@ encryption](https://en.wikipedia.org/wiki/XOR_cipher). Inspired by [Project
 Euler problem 59](https://projecteuler.net/problem=59).
 
 ```txt
-Usage: ./bin/crypt MODE KEY IN [OUT]
+Usage: crypt MODE KEY IN [OUT]
 
     MODE  (-e/-d) encrypt or decrypt
     KEY   encryption key
@@ -15,15 +15,26 @@ Usage: ./bin/crypt MODE KEY IN [OUT]
 Example usage:
 ```bash
 # encrypt /path/to/input file
-./bin/crypt -e <key> /path/to/input /path/to/output
+crypt -e <key> /path/to/input /path/to/output
 
 # decrypt /path/to/output file
-./bin/crypt -d <key> /path/to/output
+crypt -d <key> /path/to/output
 ```
 
-## Build
-Clone the repository, then run
+## Build / Install
+To build and install `crypt` into '/usr/local/bin', where it will be available on your system PATH, run:
 ```bash
-make all
+make install
 ```
-This command will build the `crypt` executable and place it in 'bin/'. It will then run all tests.
+
+You can also use `crypt` without installing it into the system path using:
+```bash
+make build
+```
+An executable is placed in the 'bin/' folder of the repo.
+
+### Run tests
+To run tests:
+```bash
+make test
+```
