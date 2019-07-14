@@ -10,8 +10,8 @@ void print_usage() {
     printf("\n");
     printf("    MODE  (-e/-d) encrypt or decrypt\n");
     printf("    KEY   encryption key\n");
-    printf("    IN    input file containing message\n");
-    printf("    OUT   if encrypting, must specify\n");
+    printf("    IN    input file\n");
+    printf("    OUT   output file; required if `-f` flag set\n");
     exit(0);
 }
 
