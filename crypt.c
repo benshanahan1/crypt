@@ -38,7 +38,6 @@ char *repeat(char *key, int keylen, int msglen) {
 }
 
 
-
 /** XOR encrypt/decrypt message with key.
  *
  * Since XOR restores the original text when the same key is used on the
@@ -69,7 +68,7 @@ char *crypt(char *msg, int msglen, char *key, int keylen) {
 /** Print raw bytes. */
 void print_bytes(char *str, int length) {
     for (int i = 0; i < length; i ++) {
-        printf("\\x%02x", str[i]);
+        printf("%02x ", (unsigned char) str[i]);
     }
     printf("\n");
 }
