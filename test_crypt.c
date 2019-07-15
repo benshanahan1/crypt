@@ -1,5 +1,4 @@
 #include "crypt.h"
-#include "test_crypt.h"
 
 
 /** Print some information about the test being run. */
@@ -66,7 +65,7 @@ int test_crypt() {
 }
 
 
-int test_path_exists() {
+int test_file_exists() {
     test_info("test_path_exists");
     int rv = 0;
 
@@ -100,7 +99,7 @@ int main(int argc, char *argv[]) {
     int rv = 0;
     rv += test_repeat();
     rv += test_crypt();
-    rv += test_path_exists();
+    rv += test_file_exists();
     if (rv == 0) {
         printf("All tests passed.\n");
     }
