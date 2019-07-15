@@ -1,6 +1,7 @@
 /** Crypt
  *
- * Very simple CLI to perform XOR encryption and decryption. Inspired by problem 59 of Project Euler (https://projecteuler.net).
+ * Very simple CLI to perform XOR encryption and decryption. Inspired by
+ * problem 59 of Project Euler (https://projecteuler.net).
  */
 
 #include "crypt.h"
