@@ -80,6 +80,5 @@ int main(int nargc, char *argv[]) {
 
     // Clean up.
     free(crypted);
-
     return 0;
 }
