@@ -12,7 +12,7 @@ void print_usage() {
     printf("    MODE  (-e/-d) encrypt or decrypt\n");
     printf("    KEY   encryption key\n");
     printf("    IN    input file\n");
-    printf("    OUT   output file; required if `-f` flag set\n");
+    printf("    OUT   output file; required if encrypting file\n");
     exit(0);
 }
 

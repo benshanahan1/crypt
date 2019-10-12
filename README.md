@@ -6,10 +6,12 @@ Euler problem 59](https://projecteuler.net/problem=59).
 ```txt
 Usage: crypt MODE KEY IN [OUT]
 
+Crypt uses a very simple XOR encryption. As a result, the longer the encryption key, the more secure the encryption.
+
     MODE  (-e/-d) encrypt or decrypt
     KEY   encryption key
     IN    input file
-    OUT   output file; required if `-f` flag set
+    OUT   output file; required if encrypting file
 ```
 
 Example usage:
